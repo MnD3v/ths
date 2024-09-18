@@ -5,7 +5,7 @@ const Equipe = () => {
     return (
         <div className='flex justify-center'>
             <div className='max my-10'>
-                <h1 className='text-center my-6'>Notre Equipe</h1>
+                <h1 className=' my-6 text-center text-2xl md:text-4xl'>Notre Equipe</h1>
                 <div className='flex flex-wrap justify-center gap-3'>
                     {
                         membres.map((element) => (

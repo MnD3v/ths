@@ -1,5 +1,7 @@
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
+import Animations from './utils/item'
 
 const Services = () => {
 
@@ -42,23 +44,28 @@ const Services = () => {
             <div className=' max flex flex-wrap justify-center gap-6'>
                 {
                     services.map((element) => (
-                        <Link key={element.icon} href={"/formations/" + element.link}> <div
-                            style={
-                                { boxShadow: "0 0 10px 5px rgba(0,0,0,0.1)" }
-                            }
-                            className='w-full sm:w-72 space-y-4 p-6 m-2'>
-                            <img src={"/icons/" + element.icon} alt="" className='h-14' />
-                            <h3 className='font-semibold font-bricolage'>{element.title}</h3>
-                            <div className='h-px bg-zinc-200 w-30'></div>
-                            <p>{element.description}</p>
-                            <button className='font-bold text-orange-600 '>
-                                <div className='flex items-center'>
-                                    <p>Voir plus</p>
-                                    <img src="/icons/arrow-go.png" alt="" className='h-6' />
-                                </div>
-                            </button>
-                        </div>
-                        </Link>
+                        <motion.a
+                            variants={Animations.bottomToTop({ duration: 0.4 * services.indexOf(element) + 0.4 })}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            key={element.icon} href={"/formations/" + element.link} className='p-2'> <div
+                                style={
+                                    { boxShadow: "0 0 10px 5px rgba(0,0,0,0.1)" }
+                                }
+                                className='hover:bg-orange-50 w-full sm:w-72 space-y-4 p-6'>
+                                <img src={"/icons/" + element.icon} alt="" className='h-14' />
+                                <h3 className='font-semibold font-bricolage'>{element.title}</h3>
+                                <div className='h-px bg-zinc-200 w-30'></div>
+                                <p>{element.description}</p>
+                                <button className='font-bold text-orange-600 '>
+                                    <div className='flex items-center'>
+                                        <p>Voir plus</p>
+                                        <img src="/icons/arrow-go.png" alt="" className='h-6' />
+                                    </div>
+                                </button>
+                            </div>
+                        </motion.a>
                     ))
                 }
             </div>

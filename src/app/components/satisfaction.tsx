@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion'
 import React from 'react'
+import Animations from './utils/item'
 
 const Satisfaction = () => {
 
@@ -13,10 +15,14 @@ const Satisfaction = () => {
 
                 {
                     chiffres.map((element) => (
-                        <div key={element.titre} className='w-72 flex flex-col items-center '>
+                        <motion.div
+                            variants={Animations.scale({ duration: 0.3 * chiffres.indexOf(element) })}
+                            initial="hidden"
+                            whileInView="show"
+                            key={element.titre} className='w-72 flex flex-col items-center '>
                             <h1 className='text-4xl md:text-6xl'>{element.titre} <span className='text-2xl font-syne'>{element.subtitre}</span></h1>
-                            <p className='font-syne text-lg font-semibold text-zinc-700'>{element.description}</p>
-                        </div>
+                            <p className='font-syne text-base md:text-lg font-semibold text-zinc-700'>{element.description}</p>
+                        </motion.div>
                     ))
                 }
 

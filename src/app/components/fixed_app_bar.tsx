@@ -33,18 +33,18 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
              py-6 px-4
              '>
 
-                <img src="/black-logo.png" alt="" className='h-9' />
+                <img src="/black-logo.png" alt="" className='h-8  md:h-12' />
                 <button
                     onClick={() => {
 
                         setMenuIsOpen((!menuIsOpen))
                         console.log(menuIsOpen)
-                    }} className={`md:hidden ${menuIsOpen ? 'pointer-events-none' : 'pointer-events-auto'}`}>
-                    <img src={"/icons/black-menu.png"} alt="" className='h-7 ' />
+                    }} className={`p-2 md:hidden ${menuIsOpen ? 'pointer-events-none' : 'pointer-events-auto'}`}>
+                    <img src={"/icons/black-menu.png"} alt="" className='h-5 ' />
                 </button>
                 <ul className={`hidden md:flex items-center justify-center`}>
                     <a href="#" ><li className="font-openSans font-semibold py-3 px-4"> Accueil</li></a>
-                    <a href="#services" ><li className="font-openSans font-semibold py-3 px-4"> Services</li></a>
+                    <a href="#formations" ><li className="font-openSans font-semibold py-3 px-4"> Formations</li></a>
                     <a href="#blog" ><li className="font-openSans font-semibold py-3 px-4"> Blog</li></a>
                     <a href="/contact" ><li className="font-openSans font-semibold py-3 px-4"> Contatcs</li></a>
                 </ul>

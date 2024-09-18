@@ -52,7 +52,7 @@ const AppBar = () => {
                 <div className='max w-full p-6 flex flex-col items-center '>
                     <div className="max w-full  justify-between hidden md:flex">
 
-                        <img src="/white-logo.png" alt="" className="h-12" />
+                        <img src="/white-logo.png" alt="" className="h-8 md:h-12" />
 
                         <div className="flex font-bricolage gap-6 items-center">
                             <div className='flex items-center'>
@@ -80,21 +80,21 @@ const AppBar = () => {
 
                         <ul className="max flex">
                             <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Accueil</li>
-                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Services</li>
+                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Formations</li>
                             <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Blog</li>
                             <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">A Propos</li>
                             <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Contact</li>
                         </ul>
                     </div>
                     <div className='flex w-full justify-between md:hidden items-center'>
-                        <img src="/white-logo.png" alt="" className="h-12" />
+                        <img src="/white-logo.png" alt="" className="h-8 md:h-12" />
                         <button
                             onClick={() => {
 
                                 setMenuIsOpen((!menuIsOpen))
                                 console.log(menuIsOpen)
                             }} >
-                            <img src={menuIsOpen ? "/icons/close.png" : "/icons/white-menu.png"} alt="" className='h-7 ' />
+                            <img src={menuIsOpen ? "/icons/close.png" : "/icons/white-menu.png"} alt="" className='h-5 ' />
                         </button>
                     </div>
                 </div>
@@ -115,7 +115,7 @@ const MobileAppBar = ({ menuRef, menuIsOpen, }: { menuRef: React.RefObject<HTMLD
 
         <ul className={`flex flex-col items-center justify-center `}>
             <a href="#" ><li className="font-openSans font-semibold py-3 px-4"> Accueil</li></a>
-            <a href="#services" ><li className="font-openSans font-semibold py-3 px-4"> Services</li></a>
+            <a href="#formations" ><li className="font-openSans font-semibold py-3 px-4"> Formations</li></a>
             <a href="#blog" ><li className="font-openSans font-semibold py-3 px-4"> Blog</li></a>
             <a href="/contact" ><li className="font-openSans font-semibold py-3 px-4"> Contatcs</li></a>
         </ul>

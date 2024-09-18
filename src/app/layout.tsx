@@ -67,7 +67,7 @@ export default function RootLayout({
               </h3>
               <div className="flex items-center">
                 <img src="/icons/phone.png" alt="" className="h-6 " />
-                <p className="p-3">+228 98784589</p>
+                <p className="p-3">+228 90559055</p>
               </div>
               <div className="flex items-center">
                 <img src="/icons/mail.png" alt="" className="h-6 " />
