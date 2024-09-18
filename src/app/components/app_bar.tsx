@@ -1,6 +1,6 @@
 "use client"
 import { motion } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useGlobalState } from '../contexts/GlobalStateContext';
 
 const AppBar = () => {
@@ -107,7 +107,7 @@ const AppBar = () => {
 export default AppBar
 
 
-const MobileAppBar = ({ menuRef, menuIsOpen, }: { menuRef: any, menuIsOpen: any }) => (
+const MobileAppBar = ({ menuRef, menuIsOpen, }: { menuRef: React.RefObject<HTMLDivElement>, menuIsOpen: boolean }) => (
     <motion.div ref={menuRef}
         initial={{ x: "-300px" }}
         animate={{ x: menuIsOpen ? "0" : "-300px", transition: { duration: 0.25 } }}

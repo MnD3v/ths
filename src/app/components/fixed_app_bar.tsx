@@ -1,7 +1,6 @@
 "use client"
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import AppBar from './app_bar'
 import { useGlobalState } from '../contexts/GlobalStateContext'
 
 const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
@@ -33,6 +32,7 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
              items-center
              py-6 px-4
              '>
+
                 <img src="/black-logo.png" alt="" className='h-9' />
                 <button
                     onClick={() => {
