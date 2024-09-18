@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Services from "./components/services";
 import APropos from "./components/apropos";
 import Satisfaction from "./components/satisfaction";
