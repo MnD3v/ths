@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import React from 'react'
 import Animations from './utils/item'
 
@@ -53,7 +52,7 @@ const Services = () => {
                                 style={
                                     { boxShadow: "0 0 10px 5px rgba(0,0,0,0.1)" }
                                 }
-                                className='hover:bg-orange-50 w-full sm:w-72 space-y-4 p-6'>
+                                className='hover:bg-blue-950 hover:text-white focus:bg-blue-950 focus:text-white w-full sm:w-72 space-y-4 p-6'>
                                 <img src={"/icons/" + element.icon} alt="" className='h-14' />
                                 <h3 className='font-semibold font-bricolage'>{element.title}</h3>
                                 <div className='h-px bg-zinc-200 w-30'></div>

@@ -5,9 +5,8 @@ import Animations from './utils/item'
 
 const Presentation = () => {
     return (
-        <div className="flex justify-center bg-blue-950 bg-[url('/bg-blue.png')] bg-cover">
+        <div className="flex justify-center bg-blue-950 bg-[url('/phone-bg.png')] md:bg-[url('/bg-blue.png')]  bg-cover">
             <div className='w-full flex justify-center bg-black/20'>
-
                 <div className='w-full flex flex-col items-center text-white'>
                     <AppBar></AppBar>
 
