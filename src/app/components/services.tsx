@@ -38,7 +38,7 @@ const Services = () => {
         }
     ]
     return (
-        <div className='my-10 flex flex-col items-center'>
+        <section id="formations" className='my-10 flex flex-col items-center'>
             <h1 className='my-9 uppercase  font-semibold text-2xl md:text-4xl'>Nos formations</h1>
             <div className=' max flex flex-wrap justify-center gap-6'>
                 {
@@ -68,7 +68,7 @@ const Services = () => {
                     ))
                 }
             </div>
-        </div>
+        </section>
     )
 }
 

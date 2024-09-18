@@ -5,7 +5,7 @@ import Animations from './utils/item'
 const APropos = () => {
     const avantages = ["Accompagnement personnalisé: Chaque apprenant bénéficie d’un suivi individuel pour maximiser son potentiel.", "Formateurs experts: Nos formateurs sont des professionnels du secteur, prêts à partager leur expérience et savoir-faire.", "Méthodes d'apprentissage innovantes: Utilisation des dernières technologies et outils pour un apprentissage pratique et efficace.", "Partenariats avec des entreprises: Nous collaborons avec des entreprises locales et internationales pour faciliter l'insertion professionnelle de nos apprenants.", "Certifications reconnues: Nos formations sont certifiées et reconnues dans le secteur numérique."]
     return (
-        <div className='flex  justify-center p-3'>
+        <section id="a-propos" className='flex  justify-center p-3'>
             <div className='flex flex-wrap max-w-[900px] gap-3'>
                 <motion.img src="/entreprise.jpg" alt=""
 
@@ -23,7 +23,7 @@ const APropos = () => {
                         Nous sommes une Entreprise de formation des jeunes dans les metiers digitaux
                     </h1>
                     <h3 className='text-orange-600'>
-                        Avantages</h3>
+                        Spécificités</h3>
                     {
                         avantages.map((element) => (
                             <motion.div
@@ -38,7 +38,7 @@ const APropos = () => {
                     }
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

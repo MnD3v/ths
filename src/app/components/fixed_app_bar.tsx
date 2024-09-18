@@ -2,11 +2,19 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import { useGlobalState } from '../contexts/GlobalStateContext'
+import { usePathname } from 'next/navigation'
 
 const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
     const { menuIsOpen, setMenuIsOpen } = useGlobalState();
 
     const [showAppBar, setShow] = useState(false)
+
+    const pathName = usePathname()
+    const [inNotHome, setInNotHome] = useState(false)
+    if (pathName != '/') {
+        setInNotHome(true)
+    }
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -33,7 +41,8 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
              py-6 px-4
              '>
 
-                <img src="/black-logo.png" alt="" className='h-8  md:h-12' />
+                <a href="#"> <img src="/black-logo.png" alt="" className='h-8  md:h-12' />
+                </a>
                 <button
                     onClick={() => {
 
@@ -43,10 +52,11 @@ const FixedAppBar = ({ fixed }: { fixed?: boolean }) => {
                     <img src={"/icons/black-menu.png"} alt="" className='h-5 ' />
                 </button>
                 <ul className={`hidden md:flex items-center justify-center`}>
-                    <a href="#" ><li className="font-openSans font-semibold py-3 px-4"> Accueil</li></a>
-                    <a href="#formations" ><li className="font-openSans font-semibold py-3 px-4"> Formations</li></a>
-                    <a href="#blog" ><li className="font-openSans font-semibold py-3 px-4"> Blog</li></a>
-                    <a href="/contact" ><li className="font-openSans font-semibold py-3 px-4"> Contatcs</li></a>
+                    <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#"}>Accueil</a></li>
+                    <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#formations"}>Formations</a></li>
+
+                    <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#a-propos"}>A Propos</a></li>
+                    <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#contact"}>Contact</a></li>
                 </ul>
             </div>
 

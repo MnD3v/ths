@@ -1,23 +1,26 @@
 "use client"
 import { motion } from 'framer-motion'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useGlobalState } from '../contexts/GlobalStateContext';
+import { usePathname } from 'next/navigation';
 
 const AppBar = () => {
     const { menuIsOpen, setMenuIsOpen } = useGlobalState();
 
     const menuRef = useRef<HTMLDivElement>(null)
 
+    const pathName = usePathname()
+    const [inNotHome, setInNotHome] = useState(false)
+
+
 
     useEffect(() => {
-
+        if (!(pathName === '/')) {
+            setInNotHome(true)
+        }
         const handleScroll = () => {
-            console.log("scring")
-            console.log(menuIsOpen)
 
             setMenuIsOpen(false)
-            console.log(menuIsOpen)
-
         }
 
 
@@ -47,12 +50,13 @@ const AppBar = () => {
             <div className={` fixed ${menuIsOpen ? "block" : "hidden"} h-full w-full bg-black/30`}>
 
             </div>
-            <MobileAppBar menuIsOpen={menuIsOpen} menuRef={menuRef}></MobileAppBar>
+            <MobileAppBar inNotHome={inNotHome} menuIsOpen={menuIsOpen} menuRef={menuRef}></MobileAppBar>
             <div className='w-full flex justify-center'>
                 <div className='max w-full p-6 flex flex-col items-center '>
                     <div className="max w-full  justify-between hidden md:flex">
 
-                        <img src="/white-logo.png" alt="" className="h-8 md:h-12" />
+                        <a href={inNotHome ? "/" : "#"}> <img src="/white-logo.png" alt="" className="h-8 md:h-12" />
+                        </a>
 
                         <div className="flex font-bricolage gap-6 items-center">
                             <div className='flex items-center'>
@@ -79,11 +83,11 @@ const AppBar = () => {
                         <div className="max h-px bg-white/40 w-full mt-9"></div>
 
                         <ul className="max flex">
-                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Accueil</li>
-                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Formations</li>
-                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Blog</li>
-                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">A Propos</li>
-                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Contact</li>
+                            <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#"}>Accueil</a></li>
+                            <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#formations"}>Formations</a></li>
+
+                            <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#a-propos"}>A Propos</a></li>
+                            <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#contact"}>Contact</a></li>
                         </ul>
                     </div>
                     <div className='flex w-full justify-between md:hidden items-center'>
@@ -107,17 +111,18 @@ const AppBar = () => {
 export default AppBar
 
 
-const MobileAppBar = ({ menuRef, menuIsOpen, }: { menuRef: React.RefObject<HTMLDivElement>, menuIsOpen: boolean }) => (
+const MobileAppBar = ({ menuRef, menuIsOpen, inNotHome }: { menuRef: React.RefObject<HTMLDivElement>, menuIsOpen: boolean, inNotHome: boolean }) => (
     <motion.div ref={menuRef}
         initial={{ x: "-300px" }}
         animate={{ x: menuIsOpen ? "0" : "-300px", transition: { duration: 0.25 } }}
         className='fixed flex flex-col justify-between bg-white w-[300px] h-full p-6 text-black z-50'>
 
         <ul className={`flex flex-col items-center justify-center `}>
-            <a href="#" ><li className="font-openSans font-semibold py-3 px-4"> Accueil</li></a>
-            <a href="#formations" ><li className="font-openSans font-semibold py-3 px-4"> Formations</li></a>
-            <a href="#blog" ><li className="font-openSans font-semibold py-3 px-4"> Blog</li></a>
-            <a href="/contact" ><li className="font-openSans font-semibold py-3 px-4"> Contatcs</li></a>
+            <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#"}>Accueil</a></li>
+            <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#formations"}>Formations</a></li>
+
+            <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#a-propos"}>A Propos</a></li>
+            <li className="hover:text-orange-600 font-semibold border-l-[1px] border-white/30 px-6 py-3"><a href={inNotHome ? "/" : "#contact"}>Contact</a></li>
         </ul>
         <div className="flex flex-wrap gap-4">
 

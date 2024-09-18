@@ -5,7 +5,7 @@ import Animations from './utils/item'
 
 const Presentation = () => {
     return (
-        <div className="flex justify-center bg-blue-950 bg-[url('/phone-bg.png')] md:bg-[url('/bg-blue.png')]  bg-cover">
+        <section id='' className="flex justify-center bg-blue-950 bg-[url('/phone-bg.png')] md:bg-[url('/bg-blue.png')]  bg-cover">
             <div className='w-full flex justify-center bg-black/20'>
                 <div className='w-full flex flex-col items-center text-white'>
                     <AppBar></AppBar>
@@ -36,16 +36,16 @@ const Presentation = () => {
                                 className="w-[400px]">
                                 Transformez vos ambitions en compétences digitales grâce à nos formations, pour réussir dans un monde en pleine transformation.
                             </motion.p>
-                            <motion.button
+                            <motion.a href='#formations'
                                 variants={Animations.scale({ duration: 2.5 })}
                                 initial="hidden"
                                 whileInView="show"
-                                className="bg-white text-black px-10 py-4 uppercase font-semibold my-3">nos formations</motion.button>
+                                className="bg-white text-black px-10 py-4 uppercase font-semibold my-3">nos formations</motion.a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

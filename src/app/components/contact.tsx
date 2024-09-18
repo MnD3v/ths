@@ -6,7 +6,7 @@ const Contact = () => {
 
     const contacts = [{ icon: "messages.png", title: "Ecrivez nous un message", description: "Nous avons des experts en social en direct qui attendent pour vous aider du lundi au vendredi de 7h à 18h", buttonText: "Envoyer un message", link: "" }, { icon: "mail-blue.png", title: "Envoyez nous un mail", description: "Nous avons des experts en social en direct qui attendent pour vous aider du lundi au vendredi de 7h à 18h", buttonText: "Envoyer un mail", link: "" }, { icon: "call.png", title: "Appelez nous", description: "Nous avons des experts en social en direct qui attendent pour vous aider du lundi au vendredi de 7h à 18h", buttonText: "+228 90559055", link: "" },]
     return (
-        <div>
+        <section id="contact">
 
             <div className='flex justify-center'>
                 <div className='max md:flex md:justify-between w-full  bg-zinc-200 p-6 md:p-16 my-12'>
@@ -45,7 +45,7 @@ const Contact = () => {
                     </motion.div>
                 ))}
             </div>
-        </div>
+        </section>
 
     )
 }

@@ -7,6 +7,9 @@ import { useEffect, useState } from 'react';
 const Formation = ({ params }: { params: { link: string } }) => {
 
 
+
+
+
     const formation = formations.find((e) => {
         console.log(params);
         console.log(e.link);
@@ -41,7 +44,7 @@ const Formation = ({ params }: { params: { link: string } }) => {
                 <div className='bg-blue-950 flex flex-col items-center text-white'>
                     <AppBar></AppBar>
 
-                    <div className=' justify-center items-center mb-8 md:my-12'>
+                    <div className=' justify-center items-center mb-8 md:my-12 mx-2'>
                         <h1 className='text-center text-2xl md:text-4xl'>FORMATIONS </h1>
 
                         <h1 className='text-center text-2xl md:text-4xl text-orange-600'>{formation?.title}</h1>
