@@ -41,9 +41,9 @@ const Formation = ({ params }: { params: { link: string } }) => {
                 <div className='bg-blue-950 flex flex-col items-center text-white'>
                     <AppBar></AppBar>
 
-                    <div className='flex flex-wrap justify-center items-center my-8'>
-                        <h1 className='text-2xl md:text-4xl'>FORMATIONS </h1>
-                        <div className='m-3 h-3 w-3 rounded-full bg-zinc-400'></div>
+                    <div className=' justify-center items-center mb-8 md:my-12'>
+                        <h1 className='text-center text-2xl md:text-4xl'>FORMATIONS </h1>
+
                         <h1 className='text-center text-2xl md:text-4xl text-orange-600'>{formation?.title}</h1>
                     </div>
 
@@ -52,7 +52,7 @@ const Formation = ({ params }: { params: { link: string } }) => {
                     <div className='max-w-[800px] leading-relaxed'>
 
                         <div className='m-2 md:m-9'>
-                            <img src={"/formations/" + formation?.icon.split('.')[0] + ".jpg"} alt="" className='h-[300px] md:h-[500px] w-full object-cover' />
+                            <img src={"/formations/" + formation?.icon.split('.')[0] + ".jpg"} alt="" className='h-[200px] sm:h-[300px] md:h-[500px] w-full object-cover' />
                             <h1 className='font-bricolage text-orange-600 mt-6'>{formation?.title}</h1>
                             <p>{formation?.full_description}</p>
                             <h2 className='text-orange-600 font-bricolage mt-6'>Débouchés</h2>

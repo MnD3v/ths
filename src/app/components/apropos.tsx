@@ -12,7 +12,7 @@ const APropos = () => {
                     variants={Animations.leftToRight({ duration: 0.5 })}
                     initial="hidden"
                     whileInView="show"
-                    className='h-[260px] w-full object-cover sm:h-[360px] md:h-[460px] lg:w-[400px] lg:h-auto' />
+                    className='h-[260px] w-full object-cover sm:h-[360px] md:h-[460px] lg:w-[400px] xl:w-[450px] lg:h-auto' />
                 <div className='w-full md:w-[600px] lg:w-[400px]'>
                     <div className='flex items-center'>
                         <p className='text-orange-600 uppercase font-poppins font-bold'>A propos de nous</p>

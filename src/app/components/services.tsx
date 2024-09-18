@@ -44,7 +44,7 @@ const Services = () => {
                 {
                     services.map((element) => (
                         <motion.a
-                            variants={Animations.bottomToTop({ duration: 0.4 * services.indexOf(element) + 0.4 })}
+                            variants={Animations.bottomToTop({ duration: 0.3 * services.indexOf(element) + 0.2 })}
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true }}
@@ -52,7 +52,7 @@ const Services = () => {
                                 style={
                                     { boxShadow: "0 0 10px 5px rgba(0,0,0,0.1)" }
                                 }
-                                className='hover:bg-blue-950 hover:text-white focus:bg-blue-950 focus:text-white w-full sm:w-72 space-y-4 p-6'>
+                                className='hover:bg-blue-950 hover:text-white focus:bg-blue-950 focus:text-white w-full sm:w-72 space-y-4 p-6 transition-all duration-200'>
                                 <img src={"/icons/" + element.icon} alt="" className='h-14' />
                                 <h3 className='font-semibold font-bricolage'>{element.title}</h3>
                                 <div className='h-px bg-zinc-200 w-30'></div>
