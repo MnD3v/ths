@@ -1,10 +1,10 @@
 "use client"
 import { motion } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
+import { useGlobalState } from '../contexts/GlobalStateContext';
 
 const AppBar = () => {
-
-    const [menuIsOpen, setIsOpen] = useState(false)
+    const { menuIsOpen, setMenuIsOpen } = useGlobalState();
 
     const menuRef = useRef<HTMLDivElement>(null)
 
@@ -15,7 +15,7 @@ const AppBar = () => {
             console.log("scring")
             console.log(menuIsOpen)
 
-            setIsOpen(false)
+            setMenuIsOpen(false)
             console.log(menuIsOpen)
 
         }
@@ -24,7 +24,7 @@ const AppBar = () => {
 
         const handleClickOutside = (event: MouseEvent) => {
             if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                setIsOpen(false)
+                setMenuIsOpen(false)
             }
         }
 
@@ -41,65 +41,109 @@ const AppBar = () => {
 
 
     return (
-        <div className=''>
-            {/* <button onClick={() => {
-                setIsOpen(false)
-            }}>
-                <div
-                    className={`${menuIsOpen ? "block" : "hidden"} flex justify-center items-center top-2 right-2 fixed h-8 w-8 bg-black/30 rounded-lg`}>
-                    <img src="/icons/close.png" alt="" className='h-3' />
-                </div>
-            </button> */}
-            <motion.div ref={menuRef}
-                initial={{ y: -300 }}
-                animate={{ y: menuIsOpen ? 0 : -300, transition: { duration: 0.25 } }}
-                className='fixed bg-white w-full p-6 text-black z-50'>
-                <ul className={`flex flex-col items-center justify-center `}>
-                    <a href="#" ><li className="font-openSans font-semibold py-3 px-4"> Accueil</li></a>
-                    <a href="#services" ><li className="font-openSans font-semibold py-3 px-4"> Services</li></a>
-                    <a href="#blog" ><li className="font-openSans font-semibold py-3 px-4"> Blog</li></a>
-                    <a href="/contact" ><li className="font-openSans font-semibold py-3 px-4"> Contatcs</li></a>
-                </ul>
+        <div className='w-full'>
 
-            </motion.div>
-            <div className="max  justify-between hidden md:flex">
 
-                <img src="/white-logo.png" alt="" className="h-12" />
+            <div className={` fixed ${menuIsOpen ? "block" : "hidden"} h-full w-full bg-black/30`}>
 
-                <div className="flex font-bricolage gap-6 items-center">
-                    <div>
-                        <p className="font-semibold">Lundi - Vendredi 08:00 - 19:00</p>
-                        <p>Samedis et Dimanches - FERMÉ</p>
+            </div>
+            <MobileAppBar menuIsOpen={menuIsOpen} menuRef={menuRef}></MobileAppBar>
+            <div className='w-full flex justify-center'>
+                <div className='max w-full p-6 flex flex-col items-center '>
+                    <div className="max w-full  justify-between hidden md:flex">
+
+                        <img src="/white-logo.png" alt="" className="h-12" />
+
+                        <div className="flex font-bricolage gap-6 items-center">
+                            <div className='flex items-center'>
+                                <img src="/icons/clock.png" alt="" className='h-6 m-1' />
+                                <div>
+                                    <p className="font-semibold">Lundi - Vendredi 08:00 - 19:00</p>
+                                    <p>Samedis et Dimanches - FERMÉ</p>
+                                </div>
+                            </div>
+
+                            <div className='flex items-center'>
+                                <img src="/icons/phone.png" alt="" className='h-6 m-1' />
+
+                                <div>
+                                    <p className="font-semibold">+228 90 90 90 90</p>
+                                    <p>ths@group.com</p>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
+                    <div className='w-full hidden md:block'>
+                        <div className="max h-px bg-white/40 w-full mt-9"></div>
 
-                    <div>
-                        <p className="font-semibold">+228 90 90 90 90</p>
-                        <p>ths@group.com</p>
+                        <ul className="max flex">
+                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Accueil</li>
+                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Services</li>
+                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Blog</li>
+                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">A Propos</li>
+                            <li className="font-semibold border-l-[1px] border-white/30 px-6 py-3">Contact</li>
+                        </ul>
                     </div>
+                    <div className='flex w-full justify-between md:hidden items-center'>
+                        <img src="/white-logo.png" alt="" className="h-12" />
+                        <button
+                            onClick={() => {
 
+                                setMenuIsOpen((!menuIsOpen))
+                                console.log(menuIsOpen)
+                            }} >
+                            <img src={menuIsOpen ? "/icons/close.png" : "/icons/white-menu.png"} alt="" className='h-7 ' />
+                        </button>
+                    </div>
                 </div>
+            </div>
 
-            </div>
-            <div className='hidden md:block'>
-                <div className="max h-px bg-white/40 w-full mt-9"></div>
-                <ul className="max flex">
-                    <li className="border-l-[1px] border-white/30 px-6 py-3">Accueil</li>
-                    <li className="border-l-[1px] border-white/30 px-6 py-3">Services</li>
-                    <li className="border-l-[1px] border-white/30 px-6 py-3">Blog</li>
-                    <li className="border-l-[1px] border-white/30 px-6 py-3">A Propos</li>
-                    <li className="border-l-[1px] border-white/30 px-6 py-3">Contact</li>
-                </ul>
-            </div>
-            <div className='flex w-full justify-between md:hidden items-center'>
-                <img src="/white-logo.png" alt="" className="h-12" />
-                <button onClick={() => {
-                    setIsOpen(true)
-                }}>
-                    <img src="/icons/menu.png" alt="" className='h-7' />
-                </button>
-            </div>
         </div>
     )
 }
 
 export default AppBar
+
+
+const MobileAppBar = ({ menuRef, menuIsOpen, }: { menuRef: any, menuIsOpen: any }) => (
+    <motion.div ref={menuRef}
+        initial={{ x: "-300px" }}
+        animate={{ x: menuIsOpen ? "0" : "-300px", transition: { duration: 0.25 } }}
+        className='fixed flex flex-col justify-between bg-white w-[300px] h-full p-6 text-black z-50'>
+
+        <ul className={`flex flex-col items-center justify-center `}>
+            <a href="#" ><li className="font-openSans font-semibold py-3 px-4"> Accueil</li></a>
+            <a href="#services" ><li className="font-openSans font-semibold py-3 px-4"> Services</li></a>
+            <a href="#blog" ><li className="font-openSans font-semibold py-3 px-4"> Blog</li></a>
+            <a href="/contact" ><li className="font-openSans font-semibold py-3 px-4"> Contatcs</li></a>
+        </ul>
+        <div className="flex flex-wrap gap-4">
+
+            <img src="/black-logo.png" alt="" className="h-9" />
+
+            <div className=" font-bricolage gap-6 items-center space-y-3">
+                <div className='flex'>
+                    <img src="/icons/clock.png" alt="" className='h-4 m-1' />
+                    <div>
+                        <p className="font-semibold">Lundi - Vendredi 08:00 - 19:00</p>
+                        <p>Samedis et Dimanches - FERMÉ</p>
+                    </div>
+                </div>
+
+                <div className='flex'>
+                    <img src="/icons/phone.png" alt="" className='h-4 m-1' />
+
+                    <div>
+                        <p className="font-semibold">+228 90 90 90 90</p>
+                        <p>ths@group.com</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </motion.div>
+)

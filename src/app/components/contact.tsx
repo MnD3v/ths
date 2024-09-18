@@ -5,7 +5,7 @@ const Contact = () => {
         <div className='flex justify-center'>
             <div className='max md:flex md:justify-between w-full  bg-zinc-200 p-16 my-12'>
                 <div className='font-bricolage w-[43%] max-md:w-full'>
-                    <h1 className='text-5xl'>
+                    <h1 className='text-3xl md:text-5xl'>
                         Satisfaction sans pression chez Ths-Group
                     </h1>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur doloremque ea praesentium odio alias dolor adipisci animi ratione quibusdam fugit dicta quae provident impedit, repellendus iure dolorem eaque veritatis reiciendis!</p>

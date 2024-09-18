@@ -9,12 +9,12 @@ const Satisfaction = () => {
     ]
     return (
         <div className='flex  justify-center bg-slate-100 py-10 my-10 '>
-            <div className=' max w-full flex flex-wrap justify-between max-md:justify-center font-bricolage text-center  capitalize p-4'>
+            <div className=' max w-full flex flex-wrap justify-between max-md:justify-center font-bricolage text-center  capitalize p-4 gap-2'>
 
                 {
                     chiffres.map((element) => (
-                        <div key={element.titre} className='w-72 flex flex-col items-center'>
-                            <h1 className='text-6xl'>{element.titre} <span className='text-2xl font-syne'>{element.subtitre}</span></h1>
+                        <div key={element.titre} className='w-72 flex flex-col items-center '>
+                            <h1 className='text-4xl md:text-6xl'>{element.titre} <span className='text-2xl font-syne'>{element.subtitre}</span></h1>
                             <p className='font-syne text-lg font-semibold text-zinc-700'>{element.description}</p>
                         </div>
                     ))

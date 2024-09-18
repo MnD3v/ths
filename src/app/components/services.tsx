@@ -38,8 +38,8 @@ const Services = () => {
     ]
     return (
         <div className='my-10 flex flex-col items-center'>
-            <h1 className='my-9 uppercase  font-semibold'>Nos formations</h1>
-            <div className='flex flex-wrap justify-center gap-6'>
+            <h1 className='my-9 uppercase  font-semibold text-2xl md:text-4xl'>Nos formations</h1>
+            <div className=' max flex flex-wrap justify-center gap-6'>
                 {
                     services.map((element) => (
                         <Link key={element.icon} href={"/formations/" + element.link}> <div

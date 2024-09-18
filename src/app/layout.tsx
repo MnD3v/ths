@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { GlobalStateProvider } from "./contexts/GlobalStateContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -41,7 +42,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <GlobalStateProvider>
+          {children}
+        </GlobalStateProvider>
 
         <footer className="relative flex justify-center bg-blue-950 p-9 pt-9 md:pt-24 text-white overflow-hidden max-sm:text-sm">
           <div className="absolute -bottom-12 -left-24 h-36 w-64 rounded-full bg-white/10 z-0 -rotate-45"></div>
